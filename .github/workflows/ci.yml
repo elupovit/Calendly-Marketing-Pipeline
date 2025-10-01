@@ -1,3 +1,23 @@
+git add .github/workflows/ci.yml
+git commit -m "fix: corrected SAM deploy parameter-overrides 
+formatting"
+git push origin dev
+
+# merge into main to trigger deploy
+git checkout main
+git pull origin main
+git merge dev
+git push origin main
+git add .github/workflows/ci.yml
+git commit -m "fix: corrected SAM deploy parameter-overrides 
+formatting"
+git push origin dev
+
+# merge into main to trigger deploy
+git checkout main
+git pull origin main
+git merge dev
+git push origin main
 name: CI & Deploy (SAM)
 
 on:
@@ -66,4 +86,5 @@ jobs:
             --parameter-overrides EmrReleaseLabel=${{ 
 secrets.EMR_RELEASE_LABEL }} BronzePrefix=bronze/calendly_raw 
 StackNamePrefix=calendly
+
 
